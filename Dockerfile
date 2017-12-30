@@ -28,13 +28,10 @@ ENV \
     EXTENDED_SSH_OPTS=""
 
 # nobody wants to be that guy who hits the same server every time
-RUN echo "@community http://dl-1.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories
-RUN echo "@community http://dl-2.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories
-RUN echo "@community http://dl-3.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories
-RUN echo "@community http://dl-4.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories
-RUN echo "@community http://dl-5.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories
-RUN echo "@community http://dl-6.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories
-RUN echo "@community http://dl-7.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories
-RUN echo "@community http://dl-8.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories
-RUN apk add --update autossh@community
-RUN rm -rf /var/lib/apt/lists/*
+RUN echo "@community http://dl-1.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories \
+ && echo "@community http://dl-2.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories \
+ && echo "@community http://dl-3.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories \
+ && echo "@community http://dl-4.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories \
+ && echo "@community http://dl-5.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories \
+ && apk add --update autossh@community \
+ && rm -rf /var/lib/apt/lists/*
