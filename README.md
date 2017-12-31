@@ -1,6 +1,8 @@
 # docker-autossh
 > Yet another containerisation of autossh that purportedly doesn't suck.
 
+Available on [Docker Hub](https://hub.docker.com/r/denbeigh2000/autossh/)
+
 ## Why another containerisation of autossh?
 > Don't you have better things to do?
 
@@ -20,6 +22,7 @@ docker run -d \
     -e SSH_USER='coolguy' \
     -e SSH_HOSTNAME='ssh.example.com' \
     -e SSH_REMOTE_FORWARDS='8080:localhost:8080,3000:localhost:3000' \
+    -e SSH_STRICT_HOST_KEY_CHECKING=no \
     --net=host \
     -v /path/to/id_rsa:/id_rsa \
     -v /path/to/ssh_config:/ssh_config \
@@ -32,6 +35,7 @@ docker run -d \
 | ----------------------------- | --------------------------------------------------------------------------------- |
 | SSH_USER                      | Username used to login (default `root`)                                           |
 | SSH_HOSTNAME                  | Hostname of remote host (default `localhost`)                                     |
+| SSH_PORT                      | Remote port to connect to (default `22`)                                          |
 | SSH_REMOTE_FORWARDS           | Remote forwards as provided to `ssh -R`, comma-separated.                         |
 | SSH_LOCAL_FORWARDS            | Local forwards as provided to `ssh -L`, comma-separated.                          |
 | SSH_EXTENDED_OPTS             | Extra options as provided to `ssh -o`, comma-separated.                           |
@@ -43,3 +47,5 @@ docker run -d \
 In addition to these, you can also override the sensible defaults provided for
 `AUTOSSH_*` env variables, as documented in the `Environment` section in the
 [man page](https://linux.die.net/man/1/autossh).
+
+You can also provide arbitrary extra arguments to ssh as extra arguments to `docker run`.
