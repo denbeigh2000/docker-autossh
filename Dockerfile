@@ -24,7 +24,7 @@ ENV \
     AUTOSSH_FIRST_POLL=30               \
     AUTOSSH_LOGLEVEL=0                  \
     AUTOSSH_PORT=-1                     \
-    SSH_TARGET_PORT=22                  \
+    SSH_PORT=22                         \
     SSH_USER="root"                     \
     SSH_HOSTNAME="localhost"            \
     SSH_IDENTITY_FILE="/id_rsa"         \

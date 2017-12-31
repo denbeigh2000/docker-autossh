@@ -63,13 +63,13 @@ fi
 # (and autossh fails to start if we provide either)
 echo "Instantiating autossh with:"
 echo autossh \
-    -t -t \
+    -N -t -t \
     -p "$SSH_PORT" \
     $SSH_OPTS $SSH_USER@${SSH_HOSTNAME}
 
 AUTOSSH_PIDFILE=/autossh.pid \
 AUTOSSH_LOGFILE=/dev/stdout \
-autossh -f \
+autossh \
     -N -t -t \
     -p "$SSH_PORT" \
     $SSH_OPTS $SSH_USER@${SSH_HOSTNAME}
