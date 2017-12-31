@@ -18,18 +18,24 @@ ADD /entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
 
 ENV \
-    TERM=xterm                  \
-    AUTOSSH_GATETIME=30         \
-    AUTOSSH_POLL=10             \
-    AUTOSSH_FIRST_POLL=30       \
-    AUTOSSH_LOGLEVEL=0          \
-    AUTOSSH_PORT=-1             \
-    SSH_TARGET_PORT=22          \
-    EXTENDED_SSH_OPTS=""
+    TERM=xterm                          \
+    AUTOSSH_GATETIME=30                 \
+    AUTOSSH_POLL=10                     \
+    AUTOSSH_FIRST_POLL=30               \
+    AUTOSSH_LOGLEVEL=0                  \
+    AUTOSSH_PORT=-1                     \
+    SSH_TARGET_PORT=22                  \
+    SSH_USER="root"                     \
+    SSH_HOSTNAME="localhost"            \
+    SSH_IDENTITY_FILE="/id_rsa"         \
+    SSH_CONFIG_FILE="/ssh_config"       \
+    SSH_KNOWN_HOSTS_FILE="/known_hosts" \
+    SSH_STRICT_HOST_KEY_CHECKING=""     \
+    SSH_EXTENDED_OPTS=""
 
 # nobody wants to be that guy who hits the same server every time
-RUN echo "@community http://dl-1.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories \
- && echo "@community http://dl-2.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories \
+# apparently dl-1 does not have community though
+RUN echo "@community http://dl-2.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories \
  && echo "@community http://dl-3.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories \
  && echo "@community http://dl-4.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories \
  && echo "@community http://dl-5.alpinelinux.org/alpine/edge/community" | tee -a /etc/apk/repositories \
