@@ -16,7 +16,7 @@ These are the key takeaways of this container:
 
 ## Quickstart
 ```
-docker run -p \
+docker run -d \
     -e SSH_USER='coolguy' \
     -e SSH_HOSTNAME='ssh.example.com' \
     -e SSH_REMOTE_FORWARDS='8080:localhost:8080,3000:localhost:3000' \
