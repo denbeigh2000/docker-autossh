@@ -41,5 +41,5 @@ docker run -p \
 | SSH_STRICT_HOST_KEY_CHECKING  | Set strict host key checking. Provide "yes"/"no", (default deferred to `ssh`)     |
 
 In addition to these, you can also override the sensible defaults provided for
-`AUTOSSH_*` env variables, as documented in the `Envionment` section in the
+`AUTOSSH_*` env variables, as documented in the `Environment` section in the
 [man page](https://linux.die.net/man/1/autossh).
